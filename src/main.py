@@ -1,2 +1,2 @@
 import os 
-#strating
+#strating project
