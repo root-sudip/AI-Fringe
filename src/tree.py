@@ -13,14 +13,17 @@ if __name__ == '__main__':
 			def __init__(self):
 				self.root = None
 			
-			def insert(self,data):
+			def insert(self,data,point_node,search_element):
 				nnode = node()
 				nnode.data = data
 				if (self.root == None):
 					self.root = nnode
-				else:
+				elif not self.root.pointers:
 					#input_search = input('Enter search element')
 						self.root.pointers.append(nnode)
+				else:
+					print('E')
+					#will start from here 
 
 			def root_leaf_list(self):
 				self.leaf_list = []
@@ -40,20 +43,20 @@ if __name__ == '__main__':
 						for sub in leafNode.pointers:
 							self.gather_ton_of_leaf_node.append(sub)
 					return self.leafs(self.gather_ton_of_leaf_node)
-					
-			def traversalPos(self):
+
+			#def traversalPos(self):
 				#will start from here 
 
 							
 		obj = tree()
 
-		obj.insert(4)
-		obj.insert(10)
-		obj.insert(20)
-		obj.insert(30)
-		obj.insert(40)
-		obj.insert(50)
-		obj.insert(60)
+		obj.insert(4,obj.root,4)
+		obj.insert(10,obj.root,4)
+		obj.insert(20,obj.root,4)
+		obj.insert(30,obj.root,4)
+		obj.insert(40,obj.root,4)
+		obj.insert(50,obj.root,4)
+		obj.insert(60,obj.root,4)
 		#obj.printt(hhead) 
 		X = obj.root_leaf_list()
 		# if not X[2].pointers:
