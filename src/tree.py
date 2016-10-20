@@ -19,13 +19,14 @@ if __name__ == '__main__':
 					nnode = node()
 					nnode.data = data
 					self.root = nnode
-				elif not self.root.pointers:
+				#elif not self.root.pointers:
+				else:
 					nnode = node()
 					nnode.data = data
 					#input_search = input('Enter search element')
 					self.root.pointers.append(nnode)
-				else:
-					print('E')
+				#else:
+				#	print('E')
 				 
 
 			def insert(self,data,list_node,search_element):
