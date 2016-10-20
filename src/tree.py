@@ -40,14 +40,16 @@ if __name__ == '__main__':
 				# 	nnode.data = data
 				# 	self.root.pointers.append(nnode)
 				# 	return True
+				self.list_node_list = []
 				if not list_node:
 					print('Not found that element')
 					return False
 				else:
-					self.list_node_list = []
+					
 					for leafNode in list_node:
 						#condition
 						if leafNode.data == search_element:
+							print('Found')
 							nnode = node()
 							nnode.data = data
 							leafNode.pointers.append(nnode)
@@ -55,7 +57,7 @@ if __name__ == '__main__':
 						else:
 							for subs in leafNode.pointers:
 								self.list_node_list.append(subs)
-							return self.insert(data,list_node,search_element)
+							return self.insert(data,self.list_node_list,search_element)
 
 			def root_leaf_list(self):
 				self.leaf_list = []
@@ -71,9 +73,14 @@ if __name__ == '__main__':
 				else:
 					self.gather_ton_of_leaf_node = []
 					for leafNode in return_list:
-						print(leafNode.data)
+						#print(leafNode.data)
 						for sub in leafNode.pointers:
 							self.gather_ton_of_leaf_node.append(sub)
+					print('====')
+					for i in self.gather_ton_of_leaf_node:
+						print(i.data)
+					print('====')
+					
 					return self.leafs(self.gather_ton_of_leaf_node)
 
 			#def traversalPos(self):
@@ -87,7 +94,7 @@ if __name__ == '__main__':
 		obj.insert_root(20)
 		X = obj.root_leaf_list()
 		obj.insert(30,X,10)
-		obj.insert(40,X,10)
+		obj.insert(40,X,20)
 		obj.insert(50,X,10)
 		obj.insert(60,X,10)
 		#obj.printt(hhead) 
@@ -108,6 +115,47 @@ if __name__ == '__main__':
 		except SystemExit:
 			print('\n')
 			os._exit(0)
+
+
+#output
+
+# Not found that element
+# 10
+# 20
+# 40
+# 50
+# 60
+# Empty list
+# ➜  src git:(master) ✗ python3 tree.py
+# Not found that element
+# Found
+# Found
+# Found
+# 10
+# 20
+# 40
+# 50
+# 60
+# Empty list
+# ➜  src git:(master) ✗ python3 tree.py
+# Not found that element
+# Not found that element
+# Found
+# Found
+# 10
+# 20
+# 50
+# 60
+# Empty list
+# ➜  src git:(master) ✗ python3 tree.py
+# Not found that element
+# Not found that element
+# Not found that element
+# Found
+# 10
+# 20
+# 60
+# Empty list
 
 
 
